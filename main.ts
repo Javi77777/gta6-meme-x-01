@@ -1,7 +1,12 @@
-// main.ts — entrypoint: copy POST.json into the output directory.
-import { copyFileSync, mkdirSync } from "node:fs";
-import { join } from "node:path";
+// gta6-meme-x-01 entry: stage the prepared post payload for publishing.
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { resolve } from "node:path";
 
-const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
-mkdirSync(outDir, { recursive: true });
-copyFileSync("POST.json", join(outDir, "POST.json"));
+const destinationFolder = process.env.MAKEFUN_OUTPUT_DIR || "/output";
+const sourceFile = resolve("POST.json");
+const targetFile = resolve(destinationFolder, "POST.json");
+const payload = readFileSync(sourceFile);
+if (!existsSync(destinationFolder)) {
+  mkdirSync(destinationFolder, { recursive: true });
+}
+writeFileSync(targetFile, payload);
