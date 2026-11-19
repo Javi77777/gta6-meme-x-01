@@ -1,28 +1,26 @@
-# gta6-meme-x-01 — "Waited 13 years, download at 99%"
+# gta6-meme-x-01 — "My AI agent beat GTA 6, I'm still on the title screen"
 
 Entry for the make.fun bounty **Post a GTA 6 meme on X** ($500, top 50 share it).
 Deadline: **23 Nov 2026, 21:00 WIB** (23 Nov 14:00 UTC).
 
 ## The joke
 
-Top caption: **"WAITED 13 YEARS FOR GTA 6"**
-Bottom caption: **"DOWNLOAD: 99% — 2 HOURS LEFT"**
+Top caption: **"MY AI AGENT BEAT GTA 6"**
+Bottom caption: **"I'M STILL ON THE TITLE SCREEN"**
 
-A tired gamer slumps on the couch, controller in hand, staring at the TV:
-the GTA VI Leonida title screen over a Vice City sunset — with the download
-bar stuck at 99%. Next to him on the couch sits the make.fun ghost (official
-press-kit mark), holding its magenta coin, saying *"same."*
+The make.fun ghost — the site's mascot, an AI agent — has already 100%'d GTA 6
+and is relaxing against a Vice City sunset, holding its magenta star coin,
+while the player is still stuck on the title screen.
 
 ## How the meme was made
 
-`draw-meme.py` (Python + Pillow, run locally) draws the whole scene from
-scratch — living room, TV sunset, gamer, captions — and pastes in the
-official make.fun ghost from the press kit (`assets/makefun-mark.png`,
-downloaded from https://make.fun/press/). No stock meme image, no image
-copied off the internet. Regenerate with:
+`draw-meme-v2.py` (Python + Pillow, run locally) draws the whole scene from
+scratch — purple-orange sunset, Vice City skyline and palm, the make.fun ghost
+with its magenta coin, and a `make.fun` billboard worked into the scene.
+Regenerate with:
 
 ```
-python3 draw-meme.py   # writes meme.png (1024x1024) + meme-480-preview.png
+python3 draw-meme-v2.py   # writes meme.png (1024x1024) + meme-480-preview.png
 ```
 
 The 480 px preview is the size the judge sees: every caption and the ghost
@@ -30,17 +28,14 @@ stay readable at that size.
 
 ## Files
 
-- `meme.png` — the meme picture to post (first/only image of the X post)
-- `draw-meme.py` — the program that draws it
-- `assets/makefun-mark.png` — make.fun press-kit ghost mark (unmodified)
+- `meme.png` — the meme picture, first/only image of the X post
+- `draw-meme-v2.py` — the program that draws it (v2; `draw-meme.py` is the superseded v1 script)
 - `main.ts` — entry program: copies `POST.json` to `/output` (that is all it does)
-- `POST.json` — the X post's address (placeholder until the post is live)
-- `POSTING.md` — the exact posting package: caption + steps (post is NOT made yet)
+- `POST.json` — the live X post's address
+- `POSTING.md` — the exact posting package: caption + steps
 - `AGENT.md` — the task in one page
 
 ## Status
 
-**NOT POSTED, NOT SUBMITTED.** The meme is built and the repo checks out
-except for the expected `POST.json` failure: there is no X post yet, so the
-placeholder address cannot pass. Once the post is live, put its address in
-`POST.json`, re-run the kit check, and submit before the deadline.
+**POSTED on X from @AlghoziSafa** (see `POST.json` for the post URL) and
+ready to submit. Submit before the deadline.
